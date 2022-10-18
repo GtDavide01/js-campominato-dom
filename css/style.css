@@ -31,6 +31,19 @@ body{
 .color{
     background-color:cadetblue   
 }
+.coloralert{
+    background-color: red;
+}
+.flex-direction-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#windefeat{
+    font-style: italic;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
 /* HEADER */
 header{
     height: 10vh;
