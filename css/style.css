@@ -1,0 +1,102 @@
+/* RESET */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* COMMON */
+.container{
+    width: 70%;
+    margin:  0 auto;
+}
+.flex{
+    display: flex;
+}
+.justify-align-center{
+    justify-content: center;
+    align-items: flex-end;
+}
+.active{
+    display: block;
+}
+.none{
+    display: none;
+}
+.color{
+    background-color:cadetblue   
+}
+/* HEADER */
+header{
+    height: 10vh;
+    display: flex;
+}
+h1{
+    font-weight: 800;
+    font-size: 2.4rem;
+}
+.headerright , .headerleft{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.headerleft{
+    justify-content: end;
+}
+.headerleft button, .headerleft select{
+    width: 13%;
+    height: 25%;
+    border-radius: .3rem;
+    border: 1px solid black;
+    font-weight: 500;
+    margin-left: .4rem;
+}
+
+/* MAIN */
+main{
+    height: 82vh;
+    background-color: #7fffd4;
+    display: flex;
+    align-items: center;
+}
+.wrapperbox{
+    height: 500px;
+    width: 500px;
+    background-color: aliceblue;
+}
+.row{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.box{
+   border: 1px solid black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+}
+.easy{
+    height: calc(100% / 10);
+    width: calc(100% /10);
+}
+.medium{
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+}
+.hard{
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+}
+/* FOOTER */
+footer{
+    height: 8vh ;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
