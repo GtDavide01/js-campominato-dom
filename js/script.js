@@ -39,9 +39,9 @@ console.log(rowGame);
 //recupero i box della griglia 
 const boxGame = document.querySelectorAll(".box");
 //richiamo funzione che permette di far comparire la griglia al click del bottone 
-btnPlay.addEventListener("click" , createElement );
-let click = false ; 
 
+let click = false ; 
+btnPlay.addEventListener("click" , createElement  );
 
 
 
@@ -85,6 +85,7 @@ function createSquare (array , arrayBomb ,choice , box , boxGame){
     //per ogni elemento dell'array 
     for ( let i=0 ; i<array.length ; i++ ){
         //creo elemento div 
+        click = false;
         const addBox = document.createElement("div");
         addBox.setAttribute("id", i+1);
         //lo collego alla row
@@ -102,10 +103,9 @@ function createSquare (array , arrayBomb ,choice , box , boxGame){
         addBox.innerHTML = array[i];
         //se clicclo sulla cella stampo numero della casella e la coloro di azzurro 
         addBox.addEventListener("click",function(){
-            console.log(array[i]);
             if (click ===false ){
                 //se l'array di bombe include un numero uguale all'array di celle coloro ogni elemento dell'array di bombe  di rosso 
-            if(arrayBomb.includes(array[i])  ){
+            if(arrayBomb.includes(array[i])){
                 for(let j=0 ; j<arrayBomb.length ; j++){
                     let bombBox = document.getElementById(arrayBomb[j]);
                     bombBox.classList.add("coloralert");
