@@ -105,16 +105,17 @@ function createSquare (array , arrayBomb ,choice){
             console.log(array[i]);
             //se l'array di bombe include un numero uguale all'array di celle coloro ogni elemento dell'array di bombe  di rosso 
             if(arrayBomb.includes(array[i])){
-                for (let n= 0 ; n<arrayBomb.length ; n++){
+                for(let j=0 ; j<arrayBomb.length ; j++){
                     addBox.classList.add("coloralert");
+                    resultGame.innerHTML= 'Hai perso';
                 }
-                resultGame.innerHTML= 'Hai perso';
             }else{
                 addBox.classList.add("color");
             }
         })
 }
 }
+
 
 //funzione che determina cosa succederà quando clicco il bottone 
 function createElement (){
@@ -146,11 +147,10 @@ function createElement (){
     const arrayGameCell = numberCell (arrayGame , gameBoxes);
     //richiamo  funzione che crea per ogni elemento dell'array creo una classe box 
     const allElement =  createSquare (arrayGame , arrayBomb , userChoice);
+
      
     console.log(arrayBomb);
     console.log(arrayGame);
-    
-   
 
 
     //funzione per creare le bombe
