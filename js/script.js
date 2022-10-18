@@ -40,6 +40,7 @@ console.log(rowGame);
 const boxGame = document.querySelectorAll(".box");
 //richiamo funzione che permette di far comparire la griglia al click del bottone 
 btnPlay.addEventListener("click" , createElement );
+let click = false ; 
 
 
 
@@ -99,21 +100,22 @@ function createSquare (array , arrayBomb ,choice , box , boxGame){
         }
         //per ogni elemento stampo anche il numero
         addBox.innerHTML = array[i];
-        //recupero risultao html
-        
         //se clicclo sulla cella stampo numero della casella e la coloro di azzurro 
         addBox.addEventListener("click",function(){
             console.log(array[i]);
-            //se l'array di bombe include un numero uguale all'array di celle coloro ogni elemento dell'array di bombe  di rosso 
-            if(arrayBomb.includes(array[i])){
+            if (click ===false ){
+                //se l'array di bombe include un numero uguale all'array di celle coloro ogni elemento dell'array di bombe  di rosso 
+            if(arrayBomb.includes(array[i])  ){
                 for(let j=0 ; j<arrayBomb.length ; j++){
                     let bombBox = document.getElementById(arrayBomb[j]);
                     bombBox.classList.add("coloralert");
                 }resultGame.innerHTML= 'Hai perso';
-                addBox.removeEventListener("click",false);
+                click = true ; 
             }else{
                 addBox.classList.add("color");
             }
+            }
+            
         })
 }
 }
