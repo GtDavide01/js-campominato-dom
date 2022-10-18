@@ -48,7 +48,6 @@ btnPlay.addEventListener("click" , createElement );
 
 
 
-
 //FUNZIONI
 /**
  * funzione per inserire le numeri di celle all'array 
@@ -101,6 +100,7 @@ function createSquare (array , choice){
         addBox.addEventListener("click",function(){
             console.log(array[i]);
             addBox.classList.add("color");
+
         })
 }
 }
@@ -130,4 +130,26 @@ function createElement (){
     const arrayGameCell = numberCell (arrayGame , gameBoxes);
     //richiamo  funzione che crea per ogni elemento dell'array creo una classe box 
     const allElement =  createSquare (arrayGame , userChoice);
+    //creo array contenente bombe 
+    const arrayBomb = [];
+    const arrayBombCreate = createBomb(arrayBomb);
+    console.log(arrayBomb);
+    console.log(arrayGame);
+    if(arrayGame === arrayBomb){
+        alert("ciao");
+    }
+
+
+    //funzione per creare le bombe
+    function createBomb (array){
+        while (array.length < 16){
+            const rndNumber = randomNuber(1 ,gameBoxes);
+            if(!array.includes(rndNumber)){
+                array.push(rndNumber);
+            }
+        }
+    }
+
 }
+
+
