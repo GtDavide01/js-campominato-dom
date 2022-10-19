@@ -113,3 +113,23 @@ footer{
     align-items: center;
     font-size: 1.2rem;
 }
+
+
+/* mediaquery */
+@media screen and (max-width : 400px){
+    h1{
+        font-weight: 800;
+        font-size: 1rem;
+    }
+    label{
+        display: none;
+    }
+    #play{
+        width: 50px;
+    }
+    .wrapperbox{
+        height: 350px;
+        width: 350px;
+        background-color: aliceblue;
+    }
+}

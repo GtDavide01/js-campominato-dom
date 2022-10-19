@@ -39,7 +39,8 @@ console.log(rowGame);
 //recupero i box della griglia 
 const boxGame = document.querySelectorAll(".box");
 //richiamo funzione che permette di far comparire la griglia al click del bottone 
-
+//array con contatore per determinare la vittoria 
+const clickCell = [];
 let click = false ; 
 btnPlay.addEventListener("click" , createElement  );
 
@@ -81,11 +82,12 @@ function randomNuber(min, max) {
  * @param {choice} //scelta contenente numero di celle
  * @returns {elementbox} //stampa celle 
  */
-function createSquare (array , arrayBomb ,choice , box , boxGame){
+function createSquare (array , arrayBomb ,choice , box , boxGame ,safecell ,clickCell){
     //per ogni elemento dell'array 
     for ( let i=0 ; i<array.length ; i++ ){
         //creo elemento div 
         click = false;
+        resultGame.innerHTML= "";
         const addBox = document.createElement("div");
         addBox.setAttribute("id", i+1);
         //lo collego alla row
@@ -104,6 +106,7 @@ function createSquare (array , arrayBomb ,choice , box , boxGame){
         //se clicclo sulla cella stampo numero della casella e la coloro di azzurro 
         addBox.addEventListener("click",function(){
             if (click ===false ){
+                const clickedNumber = parseInt(array[i]);
                 //se l'array di bombe include un numero uguale all'array di celle coloro ogni elemento dell'array di bombe  di rosso 
             if(arrayBomb.includes(array[i])){
                 for(let j=0 ; j<arrayBomb.length ; j++){
@@ -113,9 +116,12 @@ function createSquare (array , arrayBomb ,choice , box , boxGame){
                 click = true ; 
             }else{
                 addBox.classList.add("color");
+                clickCell.push(clickedNumber);
             }
             }
-            
+            if (clickCell === safecell){
+                alert("hai vinto");
+            }
         })
 }
 }
@@ -141,7 +147,8 @@ function createElement (){
         gameBoxes = 49;
     }
     
-   
+    let safeCells = gameBoxes - 16;
+    console.log(safeCells);
     //creo array 
     const arrayGame = [];
     //creo array contenente bombe 
@@ -150,7 +157,7 @@ function createElement (){
     //richiamo funzione per determinare il numero di celle 
     const arrayGameCell = numberCell (arrayGame , gameBoxes);
     //richiamo  funzione che crea per ogni elemento dell'array creo una classe box 
-    const allElement =  createSquare (arrayGame , arrayBomb , userChoice , boxGame , gameBoxes);
+    const allElement =  createSquare (arrayGame , arrayBomb , userChoice , boxGame , gameBoxes , safeCells ,clickCell);
 
      
     console.log(arrayBomb);
