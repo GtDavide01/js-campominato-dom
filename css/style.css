@@ -116,7 +116,7 @@ footer{
 
 
 /* mediaquery */
-@media screen and (max-width : 414px){
+@media screen and (max-width : 500px){
     h1{
         font-weight: 800;
         font-size: 1rem;
